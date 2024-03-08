@@ -1,14 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
-import pickle
+import joblib
 import numpy as np
 import pandas as pd
 
 app = FastAPI()
 
 # Load the pickled model
-pickle_in = open('model_hc.pkl', 'rb')
-pModel = pickle.load(pickle_in)
+
+pModel = joblib.load('model_hc.joblib')
 
 @app.get("/")
 async def root():
